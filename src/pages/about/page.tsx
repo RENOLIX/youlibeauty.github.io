@@ -4,8 +4,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
+import heroSalonImage from "@/assets/youli-hero-salon.png";
 
-const SALON_1 = "https://images.unsplash.com/photo-1633681138600-295fcd688876?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800";
+const SALON_1 = heroSalonImage;
 const SALON_2 = "https://images.unsplash.com/photo-1633681926035-ec1ac984418a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800";
 
 const values = [

@@ -3,8 +3,10 @@ import { motion } from "motion/react";
 import { ArrowRight, Star, Sparkles, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
+import heroSalonImage from "@/assets/youli-hero-salon.png";
+import epilationImage from "@/assets/youli-epilation.png";
 
-const HERO_IMAGE = "https://images.unsplash.com/photo-1633681138600-295fcd688876?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBoYWlyJTIwc2Fsb24lMjBpbnRlcmlvciUyMGVsZWdhbnR8ZW58MHx8fHwxNzc5MzgzMTM0fDA&ixlib=rb-4.1.0&q=80&w=1080";
+const HERO_IMAGE = heroSalonImage;
 const SALON_IMAGE = "https://images.unsplash.com/photo-1633681122703-3ce20f1e978d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHw1fHxsdXh1cnklMjBoYWlyJTIwc2Fsb24lMjBpbnRlcmlvciUyMGVsZWdhbnR8ZW58MHx8fHwxNzc5MzgzMTM0fDA&ixlib=rb-4.1.0&q=80&w=1080";
 
 const categories = [
@@ -38,7 +40,7 @@ const categories = [
   },
   {
     title: "Épilation",
-    img: "https://images.unsplash.com/photo-1696192410531-dc179772a0e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHwyfHx3YXhpbmclMjBlcGlsYXRpb24lMjBiZWF1dHklMjBzYWxvbnxlbnwwfHx8fDE3Nzk0NTg3MTB8MA&ixlib=rb-4.1.0&q=80&w=600",
+    img: epilationImage,
     services: [
       { name: "Corps Complet", price: "10 000 DA" },
       { name: "Jambes", price: "2 000 DA / 1/2" },

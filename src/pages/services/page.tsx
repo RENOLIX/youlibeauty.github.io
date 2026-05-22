@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { ArrowRight, CheckCircle, Clock, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
+import heroSalonImage from "@/assets/youli-hero-salon.png";
 
 const services = [
   {
@@ -39,7 +40,7 @@ const services = [
     tag: "Naturel",
     desc: "Inspiré des techniques capillaires indiennes ancestrales, ce lissage utilise des huiles précieuses pour un résultat naturel et lumineux.",
     benefits: ["100% naturel & doux", "Nourrit intensément", "Idéal cheveux fragiles", "Durabilité 3 mois"],
-    image: "https://images.unsplash.com/photo-1633681138600-295fcd688876?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    image: heroSalonImage,
   },
   {
     name: "Lissage Brésilien",
