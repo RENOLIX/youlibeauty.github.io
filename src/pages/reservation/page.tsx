@@ -14,6 +14,7 @@ import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
 
 const CONTACT_PHONE = "0552189640";
+const WHATSAPP_PHONE = CONTACT_PHONE.replace(/\D/g, "").replace(/^0/, "213");
 
 const services = [
   { value: "proteine_keratine", label: "Protéine Kératine - 6 000 DZD" },
@@ -58,6 +59,27 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
+function buildWhatsAppMessage(data: FormData) {
+  const selectedService = services.find((service) => service.value === data.service)?.label ?? data.service;
+  const lines = [
+    "Bonjour Youli Beauty, je souhaite réserver un rendez-vous.",
+    "",
+    "Détails de la réservation :",
+    `Nom : ${data.nom}`,
+    `Prénom : ${data.prenom}`,
+    `Téléphone : ${data.telephone}`,
+    `Email : ${data.email || "Non renseigné"}`,
+    `Service souhaité : ${selectedService}`,
+    `Date souhaitée : ${data.date}`,
+    `Horaire préféré : ${data.heure}`,
+    `Message : ${data.message || "Aucune précision"}`,
+    "",
+    "Merci de me confirmer la disponibilité du rendez-vous.",
+  ];
+
+  return lines.join("\n");
+}
+
 export default function Reservation() {
   const [submitted, setSubmitted] = useState(false);
 
@@ -84,8 +106,8 @@ export default function Reservation() {
     try {
       const reservations = JSON.parse(localStorage.getItem("youli-reservations") || "[]") as FormData[];
       localStorage.setItem("youli-reservations", JSON.stringify([...reservations, data]));
-      await new Promise((resolve) => window.setTimeout(resolve, 500));
-      setSubmitted(true);
+      const message = buildWhatsAppMessage(data);
+      window.location.href = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
     } catch {
       toast.error("Une erreur s'est produite. Veuillez réessayer ou nous appeler.");
     }
@@ -268,11 +290,11 @@ export default function Reservation() {
               disabled={isSubmitting}
               className="w-full py-3.5 text-sm font-medium tracking-wide"
             >
-              {isSubmitting ? "Envoi en cours..." : "Confirmer ma réservation"}
+              {isSubmitting ? "Préparation du message..." : "Envoyer ma réservation sur WhatsApp"}
             </Button>
 
             <p className="text-xs text-muted-foreground text-center">
-              Votre réservation sera confirmée par téléphone sous 24h. Pour toute urgence : {CONTACT_PHONE}
+              Un message WhatsApp organisé sera préparé automatiquement. Pour toute urgence : {CONTACT_PHONE}
             </p>
           </motion.form>
         </div>
