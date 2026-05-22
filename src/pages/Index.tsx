@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 import { ArrowRight, Star, Sparkles, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
+import MapPreview from "@/components/MapPreview.tsx";
 import heroSalonImage from "@/assets/youli-hero-salon.png";
 import epilationImage from "@/assets/youli-epilation.png";
 import storySalonImage from "@/assets/youli-story-salon.png";
@@ -24,7 +25,7 @@ const categories = [
     title: "Soins Cheveux",
     img: "https://images.unsplash.com/photo-1562259920-47afc3030ba2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHw0fHxrZXJhdGluJTIwaGFpciUyMHRyZWF0bWVudCUyMHNhbG9ufGVufDB8fHx8MTc3OTM4NTc5OXww&ixlib=rb-4.1.0&q=80&w=600",
     services: [
-      { name: "Protéine", price: "500 DA" },
+      { name: "Protéine", price: "6 000 DA" },
       { name: "Mélange Protéine Collagène", price: "8 000 DA" },
       { name: "Lissage Indien / Brésilien", price: "15 000 DA" },
       { name: "Cystéine", price: "18 000 DA" },
@@ -282,9 +283,8 @@ export default function Index() {
               Un Espace Dédié à <em className="italic">Votre Beauté</em>
             </h2>
             <p className="text-background/75 leading-relaxed text-sm">
-              Depuis plus de 10 ans, Salon Lumière est le rendez-vous des femmes algériennes qui recherchent
-              l'excellence en matière de soins capillaires. Notre équipe de professionnels certifiés maîtrise
-              les techniques les plus avancées.
+              Depuis 2018, Youli Beauty est le rendez-vous des femmes algériennes qui recherchent
+              l'excellence en matière de soins capillaires. Notre équipe maîtrise les techniques les plus avancées.
             </p>
             <ul className="space-y-2">
               {["Produits professionnels certifiés", "Coiffeuses expertes & certifiées", "Résultats durables garantis", "Ambiance élégante & chaleureuse"].map((item) => (
@@ -313,7 +313,7 @@ export default function Index() {
               { val: "8+", label: "Services Premium" },
               { val: "500+", label: "Clientes Satisfaites" },
               { val: "5 ★", label: "Note Moyenne" },
-              { val: "10 ans", label: "d'Expérience" },
+              { val: "2018", label: "Depuis" },
             ].map((stat) => (
               <div key={stat.label} className="glass rounded-2xl p-6 text-center">
                 <div className="font-serif text-3xl font-semibold text-background">{stat.val}</div>
@@ -382,6 +382,21 @@ export default function Index() {
             Réserver mon rendez-vous
           </Link>
         </motion.div>
+      </section>
+
+      <section className="py-20 bg-background">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-[0.8fr_1.2fr] gap-10 items-center">
+          <div>
+            <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Nous Trouver</p>
+            <h2 className="font-serif text-4xl font-light text-foreground mb-4">
+              Venez chez <em className="italic">Youli Beauty</em>
+            </h2>
+            <p className="text-muted-foreground leading-relaxed">
+              Ouvrez l'itinéraire Google Maps pour rejoindre directement le salon.
+            </p>
+          </div>
+          <MapPreview />
+        </div>
       </section>
 
       <Footer />

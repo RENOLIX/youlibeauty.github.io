@@ -16,13 +16,23 @@ import Footer from "@/components/Footer.tsx";
 const CONTACT_PHONE = "0552189640";
 
 const services = [
-  { value: "proteine_keratine", label: "Protéine Kératine - 8 500 DZD" },
-  { value: "melange_proteine_collagene", label: "Mélange Protéine Collagène - 9 000 DZD" },
+  { value: "proteine_keratine", label: "Protéine Kératine - 6 000 DZD" },
+  { value: "melange_proteine_collagene", label: "Mélange Protéine Collagène - 8 000 DZD" },
   { value: "melange_keratine_collagene", label: "Mélange Kératine Collagène - 9 500 DZD" },
-  { value: "lissage_indien", label: "Lissage Indien - 7 500 DZD" },
-  { value: "lissage_bresilien", label: "Lissage Brésilien - 8 000 DZD" },
-  { value: "proteine_cysteine", label: "Protéine à base de Cystéine - 10 000 DZD" },
-  { value: "enzymou_therapie", label: "Enzymou Thérapie - 11 000 DZD" },
+  { value: "lissage_indien", label: "Lissage Indien - 15 000 DZD" },
+  { value: "lissage_bresilien", label: "Lissage Brésilien - 15 000 DZD" },
+  { value: "proteine_cysteine", label: "Protéine à base de Cystéine - 18 000 DZD" },
+  { value: "enzymou_therapie", label: "Enzymou Thérapie - 20 000 DZD" },
+  { value: "brushing", label: "Brushing - 500 DZD" },
+  { value: "balayage", label: "Balayage - 12 000 DZD" },
+  { value: "coloration", label: "Coloration - 3 000 DZD" },
+  { value: "shampoing_masque", label: "Shampoing & Masque - 500 DZD" },
+  { value: "ondulation", label: "Ondulation - 1 500 DZD" },
+  { value: "epilation_corps_complet", label: "Épilation corps complet - 10 000 DZD" },
+  { value: "epilation_jambes", label: "Épilation jambes - 2 000 DZD / 1/2" },
+  { value: "epilation_bras", label: "Épilation bras - 2 000 DZD / 1/2" },
+  { value: "epilation_maillot", label: "Épilation maillot - 4 000 DZD" },
+  { value: "epilation_visage", label: "Épilation moustache / visage - 1 000 DZD" },
 ];
 
 const horaires = [
@@ -153,12 +163,12 @@ export default function Reservation() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div className="space-y-1.5">
                   <Label htmlFor="nom">Nom *</Label>
-                  <Input id="nom" placeholder="Belhadj" {...register("nom")} className={errors.nom ? "border-destructive" : ""} />
+                  <Input id="nom" placeholder="Tahir" {...register("nom")} className={errors.nom ? "border-destructive" : ""} />
                   {errors.nom && <p className="text-xs text-destructive">{errors.nom.message}</p>}
                 </div>
                 <div className="space-y-1.5">
                   <Label htmlFor="prenom">Prénom *</Label>
-                  <Input id="prenom" placeholder="Yasmine" {...register("prenom")} className={errors.prenom ? "border-destructive" : ""} />
+                  <Input id="prenom" placeholder="Lina" {...register("prenom")} className={errors.prenom ? "border-destructive" : ""} />
                   {errors.prenom && <p className="text-xs text-destructive">{errors.prenom.message}</p>}
                 </div>
                 <div className="space-y-1.5">

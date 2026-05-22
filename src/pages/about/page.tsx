@@ -49,7 +49,7 @@ export default function About() {
             À Propos de <em className="italic">Nous</em>
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Youli Beauty accompagne les femmes qui veulent des cheveux brillants, soignés et faciles à porter au quotidien.
+            Depuis 2018, Youli Beauty accompagne les femmes qui veulent des cheveux brillants, soignés et faciles à porter au quotidien.
           </p>
         </motion.div>
       </section>
@@ -67,7 +67,7 @@ export default function About() {
               Une Passion Née de <em className="italic">l'Amour du Cheveu</em>
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Notre salon met l'accent sur les soins capillaires précis, les finitions élégantes et les transformations
+              Depuis 2018, notre salon met l'accent sur les soins capillaires précis, les finitions élégantes et les transformations
               visibles. Chaque rendez-vous commence par une écoute attentive pour choisir le soin adapté à vos cheveux.
             </p>
             <p className="text-muted-foreground leading-relaxed">

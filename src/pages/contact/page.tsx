@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
+import MapPreview from "@/components/MapPreview.tsx";
 
 const CONTACT_EMAIL = "Linatahir19ans@gmail.com";
 const CONTACT_PHONE = "0552189640";
@@ -107,18 +108,7 @@ export default function Contact() {
             <h2 className="font-serif text-3xl font-light text-foreground">
               Nous <em className="italic">Trouver</em>
             </h2>
-            <a
-              href={MAP_URL}
-              target="_blank"
-              rel="noreferrer"
-              className="bg-muted border border-border h-72 flex items-center justify-center hover:border-primary transition-colors"
-            >
-              <div className="text-center space-y-2">
-                <MapPin className="w-8 h-8 text-primary mx-auto" />
-                <p className="font-serif text-lg text-foreground">Salon Lumière</p>
-                <p className="text-muted-foreground text-sm">Ouvrir la localisation Google Maps</p>
-              </div>
-            </a>
+            <MapPreview />
             <div className="glass-card border-0 p-6 space-y-2 rounded-sm">
               <h3 className="font-serif text-lg text-foreground">Comment venir ?</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
