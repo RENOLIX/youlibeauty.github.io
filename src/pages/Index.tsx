@@ -6,6 +6,15 @@ import Footer from "@/components/Footer.tsx";
 import heroSalonImage from "@/assets/youli-hero-salon.png";
 import epilationImage from "@/assets/youli-epilation.png";
 import storySalonImage from "@/assets/youli-story-salon.png";
+import resultImage1 from "@/assets/about/youli-result-01.jpeg";
+import resultImage2 from "@/assets/about/youli-result-02.jpeg";
+import resultImage3 from "@/assets/about/youli-result-03.jpeg";
+import resultImage4 from "@/assets/about/youli-result-04.jpeg";
+import resultImage5 from "@/assets/about/youli-result-05.jpeg";
+import resultVideo1 from "@/assets/about/youli-video-01.mp4";
+import resultVideo2 from "@/assets/about/youli-video-02.mp4";
+import resultVideo3 from "@/assets/about/youli-video-03.mp4";
+import resultVideo4 from "@/assets/about/youli-video-04.mp4";
 
 const HERO_IMAGE = heroSalonImage;
 const SALON_IMAGE = storySalonImage;
@@ -56,6 +65,18 @@ const testimonials = [
   { name: "Amira B.", text: "Le lissage brésilien a transformé mes cheveux. Résultat impeccable, je recommande !", stars: 5 },
   { name: "Lina K.", text: "Salon magnifique, personnel très professionnel. L'enzymou thérapie vaut chaque dinar !", stars: 5 },
   { name: "Samia M.", text: "Meilleur salon d'Alger pour les soins protéine. Je suis cliente depuis 2 ans.", stars: 5 },
+];
+
+const realizations = [
+  { type: "image", src: resultImage1, title: "Brillance miroir" },
+  { type: "video", src: resultVideo1, title: "Résultat en mouvement" },
+  { type: "image", src: resultImage2, title: "Lissage lumineux" },
+  { type: "video", src: resultVideo2, title: "Finition soyeuse" },
+  { type: "image", src: resultImage3, title: "Coiffure élégante" },
+  { type: "image", src: resultImage4, title: "Soin profond" },
+  { type: "video", src: resultVideo3, title: "Transformation" },
+  { type: "image", src: resultImage5, title: "Cheveux sublimés" },
+  { type: "video", src: resultVideo4, title: "Avant / après" },
 ];
 
 const marqueeItems = [
@@ -190,6 +211,54 @@ export default function Index() {
               Tous nos services
               <ArrowRight className="w-4 h-4" />
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-24 bg-muted overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="mb-10"
+          >
+            <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Réalisations</p>
+            <h2 className="font-serif text-4xl md:text-5xl font-light text-foreground">
+              Quelques <em className="italic">Résultats</em>
+            </h2>
+          </motion.div>
+
+          <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {realizations.map((item, i) => (
+              <motion.figure
+                key={`${item.title}-${i}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.04, ease: "easeOut" }}
+                className="glass-card snap-start shrink-0 w-[78vw] sm:w-[360px] overflow-hidden rounded-3xl"
+              >
+                <div className="aspect-[4/5] bg-foreground/5">
+                  {item.type === "image" ? (
+                    <img src={item.src} alt={item.title} className="h-full w-full object-cover" />
+                  ) : (
+                    <video
+                      src={item.src}
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                    />
+                  )}
+                </div>
+                <figcaption className="px-5 py-4 font-serif text-lg text-foreground">
+                  {item.title}
+                </figcaption>
+              </motion.figure>
+            ))}
           </div>
         </div>
       </section>

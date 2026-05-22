@@ -4,16 +4,33 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
-import heroSalonImage from "@/assets/youli-hero-salon.png";
-
-const SALON_1 = heroSalonImage;
-const SALON_2 = "https://images.unsplash.com/photo-1633681926035-ec1ac984418a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=800";
+import resultImage1 from "@/assets/about/youli-result-01.jpeg";
+import resultImage2 from "@/assets/about/youli-result-02.jpeg";
+import resultImage3 from "@/assets/about/youli-result-03.jpeg";
+import resultImage4 from "@/assets/about/youli-result-04.jpeg";
+import resultImage5 from "@/assets/about/youli-result-05.jpeg";
+import resultVideo1 from "@/assets/about/youli-video-01.mp4";
+import resultVideo2 from "@/assets/about/youli-video-02.mp4";
+import resultVideo3 from "@/assets/about/youli-video-03.mp4";
+import resultVideo4 from "@/assets/about/youli-video-04.mp4";
 
 const values = [
   { icon: Award, title: "Excellence", desc: "Nous n'utilisons que les produits professionnels les plus performants du marché." },
   { icon: Heart, title: "Passion", desc: "Chaque cliente est unique. Nous mettons tout notre cœur dans chaque soin." },
   { icon: Users, title: "Expertise", desc: "Notre équipe est certifiée et se forme régulièrement aux dernières tendances." },
-  { icon: CheckCircle, title: "Confiance", desc: "Des milliers de clientes nous font confiance depuis plus de 10 ans à Alger." },
+  { icon: CheckCircle, title: "Confiance", desc: "Des clientes nous font confiance à Alger pour des résultats visibles et durables." },
+];
+
+const gallery = [
+  { type: "image", src: resultImage1, title: "Lissage brillant" },
+  { type: "video", src: resultVideo1, title: "Résultat fluide" },
+  { type: "image", src: resultImage2, title: "Finition naturelle" },
+  { type: "video", src: resultVideo2, title: "Cheveux en mouvement" },
+  { type: "image", src: resultImage3, title: "Coiffure de soirée" },
+  { type: "image", src: resultImage4, title: "Soin kératine" },
+  { type: "video", src: resultVideo3, title: "Transformation" },
+  { type: "image", src: resultImage5, title: "Brillance profonde" },
+  { type: "video", src: resultVideo4, title: "Avant / après" },
 ];
 
 export default function About() {
@@ -32,7 +49,7 @@ export default function About() {
             À Propos de <em className="italic">Nous</em>
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Depuis 2014, Salon Lumière est le sanctuaire beauté des femmes algériennes qui exigent le meilleur pour leurs cheveux.
+            Youli Beauty accompagne les femmes qui veulent des cheveux brillants, soignés et faciles à porter au quotidien.
           </p>
         </motion.div>
       </section>
@@ -50,16 +67,16 @@ export default function About() {
               Une Passion Née de <em className="italic">l'Amour du Cheveu</em>
             </h2>
             <p className="text-muted-foreground leading-relaxed">
-              Salon Lumière a vu le jour en 2014, fondé par Yasmine Belhadj, coiffeuse passionnée formée entre Alger
-              et Paris. Sa vision : créer un espace où chaque femme se sent unique, écoutée et magnifiée.
+              Notre salon met l'accent sur les soins capillaires précis, les finitions élégantes et les transformations
+              visibles. Chaque rendez-vous commence par une écoute attentive pour choisir le soin adapté à vos cheveux.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Spécialisé dans les traitements capillaires de haute technologie - kératine, protéine, lissages
-              brésilien et indien - notre salon est aujourd'hui une référence incontournable à Alger.
+              Kératine, protéine, lissages, brushing, coloration ou coiffure événementielle : nous travaillons chaque
+              détail pour obtenir un résultat propre, lumineux et durable.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Nous sélectionnons rigoureusement chaque produit pour garantir sécurité, efficacité et respect de la
-              fibre capillaire. Votre santé capillaire est notre priorité absolue.
+              Les photos et vidéos ci-dessous montrent de vraies réalisations du salon, avec des cheveux lissés,
+              brillants et mis en valeur dans notre espace beauté.
             </p>
           </motion.div>
           <motion.div
@@ -69,13 +86,61 @@ export default function About() {
             transition={{ duration: 0.7, ease: "easeOut" }}
             className="grid grid-cols-2 gap-4"
           >
-            <img src={SALON_1} alt="Salon Lumière" className="w-full h-52 object-cover" />
-            <img src={SALON_2} alt="Salon Lumière intérieur" className="w-full h-52 object-cover mt-8" />
+            <img src={resultImage1} alt="Résultat lissage Youli Beauty" className="w-full h-52 object-cover" />
+            <video
+              src={resultVideo1}
+              className="w-full h-52 object-cover mt-8"
+              muted
+              loop
+              autoPlay
+              playsInline
+            />
           </motion.div>
         </div>
       </section>
 
-      <section className="py-20 bg-muted">
+      <section className="py-20 bg-muted overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Nos Réalisations</p>
+            <h2 className="font-serif text-4xl font-light text-foreground">
+              Résultats <em className="italic">Youli Beauty</em>
+            </h2>
+          </div>
+          <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            {gallery.map((item, i) => (
+              <motion.figure
+                key={`${item.title}-${i}`}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.04, ease: "easeOut" }}
+                className="glass-card snap-start shrink-0 w-[78vw] sm:w-[340px] overflow-hidden rounded-3xl"
+              >
+                <div className="aspect-[4/5] bg-foreground/5">
+                  {item.type === "image" ? (
+                    <img src={item.src} alt={item.title} className="h-full w-full object-cover" />
+                  ) : (
+                    <video
+                      src={item.src}
+                      className="h-full w-full object-cover"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                    />
+                  )}
+                </div>
+                <figcaption className="px-5 py-4 font-serif text-lg text-foreground">
+                  {item.title}
+                </figcaption>
+              </motion.figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-background">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Ce Qui Nous Définit</p>
@@ -106,7 +171,7 @@ export default function About() {
 
       <section className="py-16 bg-primary text-primary-foreground text-center px-6">
         <h2 className="font-serif text-3xl font-light mb-4">Prête à Nous Rencontrer ?</h2>
-        <p className="text-primary-foreground/70 mb-6">Venez vivre l'expérience Salon Lumière.</p>
+        <p className="text-primary-foreground/70 mb-6">Venez vivre l'expérience Youli Beauty.</p>
         <Link
           to="/reservation"
           className="inline-flex items-center gap-2 bg-background text-foreground px-8 py-3.5 text-sm font-medium hover:opacity-90 transition-opacity cursor-pointer rounded-full"

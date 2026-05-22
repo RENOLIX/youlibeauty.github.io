@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail } from "lucide-react";
 
+const CONTACT_EMAIL = "Linatahir19ans@gmail.com";
+const CONTACT_PHONE = "0552189640";
+const MAP_URL = "https://maps.app.goo.gl/bFBAyNu4sHcPr8eD7";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -59,15 +63,21 @@ export default function Footer() {
           <ul className="space-y-3 text-sm">
             <li className="flex items-start gap-2">
               <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
-              <span>123 Rue Didouche Mourad, Alger Centre, Algérie</span>
+              <a href={MAP_URL} target="_blank" rel="noreferrer" className="hover:text-accent transition-colors">
+                Voir la localisation Google Maps
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <Phone className="w-4 h-4 shrink-0 text-accent" />
-              <span>+213 555 00 00 00</span>
+              <a href={`tel:${CONTACT_PHONE}`} className="hover:text-accent transition-colors">
+                {CONTACT_PHONE}
+              </a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="w-4 h-4 shrink-0 text-accent" />
-              <span>contact@salonlumiere.dz</span>
+              <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-accent transition-colors">
+                {CONTACT_EMAIL}
+              </a>
             </li>
           </ul>
           <div className="text-xs text-background/50 pt-2">

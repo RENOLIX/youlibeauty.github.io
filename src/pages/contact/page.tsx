@@ -3,6 +3,10 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
 
+const CONTACT_EMAIL = "Linatahir19ans@gmail.com";
+const CONTACT_PHONE = "0552189640";
+const MAP_URL = "https://maps.app.goo.gl/bFBAyNu4sHcPr8eD7";
+
 export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -42,9 +46,15 @@ export default function Contact() {
                   <MapPin className="w-4 h-4 text-primary" />
                 </div>
                 <div>
-                  <div className="font-medium text-foreground mb-1">Adresse</div>
-                  <div className="text-muted-foreground text-sm">123 Rue Didouche Mourad</div>
-                  <div className="text-muted-foreground text-sm">Alger Centre, Algérie 16000</div>
+                  <div className="font-medium text-foreground mb-1">Localisation</div>
+                  <a
+                    href={MAP_URL}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-pointer"
+                  >
+                    Ouvrir l'itinéraire Google Maps
+                  </a>
                 </div>
               </div>
 
@@ -54,8 +64,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-medium text-foreground mb-1">Téléphone</div>
-                  <a href="tel:+213555000000" className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-pointer">
-                    +213 555 00 00 00
+                  <a href={`tel:${CONTACT_PHONE}`} className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-pointer">
+                    {CONTACT_PHONE}
                   </a>
                 </div>
               </div>
@@ -66,8 +76,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="font-medium text-foreground mb-1">Email</div>
-                  <a href="mailto:contact@salonlumiere.dz" className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-pointer">
-                    contact@salonlumiere.dz
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-muted-foreground text-sm hover:text-primary transition-colors cursor-pointer">
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
               </div>
@@ -97,18 +107,23 @@ export default function Contact() {
             <h2 className="font-serif text-3xl font-light text-foreground">
               Nous <em className="italic">Trouver</em>
             </h2>
-            <div className="bg-muted border border-border h-72 flex items-center justify-center">
+            <a
+              href={MAP_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="bg-muted border border-border h-72 flex items-center justify-center hover:border-primary transition-colors"
+            >
               <div className="text-center space-y-2">
                 <MapPin className="w-8 h-8 text-primary mx-auto" />
                 <p className="font-serif text-lg text-foreground">Salon Lumière</p>
-                <p className="text-muted-foreground text-sm">123 Rue Didouche Mourad, Alger</p>
+                <p className="text-muted-foreground text-sm">Ouvrir la localisation Google Maps</p>
               </div>
-            </div>
+            </a>
             <div className="glass-card border-0 p-6 space-y-2 rounded-sm">
               <h3 className="font-serif text-lg text-foreground">Comment venir ?</h3>
               <p className="text-muted-foreground text-sm leading-relaxed">
-                Nous sommes situés en plein cœur d'Alger Centre, à 2 minutes à pied de la Grande Poste.
-                Parking disponible à proximité. Accessible en métro (station Tafourah) et en bus.
+                Cliquez sur la carte pour ouvrir l'itinéraire et rejoindre directement le salon.
+                Pour toute question avant votre venue, appelez-nous ou envoyez-nous un email.
               </p>
             </div>
           </motion.div>

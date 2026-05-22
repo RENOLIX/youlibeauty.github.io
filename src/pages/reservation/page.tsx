@@ -13,6 +13,8 @@ import { Textarea } from "@/components/ui/textarea.tsx";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
 
+const CONTACT_PHONE = "0552189640";
+
 const services = [
   { value: "proteine_keratine", label: "Protéine Kératine - 8 500 DZD" },
   { value: "melange_proteine_collagene", label: "Mélange Protéine Collagène - 9 000 DZD" },
@@ -99,7 +101,7 @@ export default function Reservation() {
               pour confirmer votre rendez-vous.
             </p>
             <p className="text-sm text-muted-foreground">
-              Pour toute urgence, appelez-nous au <strong className="text-foreground">+213 555 00 00 00</strong>
+              Pour toute urgence, appelez-nous au <strong className="text-foreground">{CONTACT_PHONE}</strong>
             </p>
             <button
               onClick={() => setSubmitted(false)}
@@ -163,7 +165,7 @@ export default function Reservation() {
                   <Label htmlFor="telephone">
                     <Phone className="inline w-3.5 h-3.5 mr-1" />Téléphone *
                   </Label>
-                  <Input id="telephone" placeholder="+213 555 00 00 00" {...register("telephone")} className={errors.telephone ? "border-destructive" : ""} />
+                  <Input id="telephone" placeholder={CONTACT_PHONE} {...register("telephone")} className={errors.telephone ? "border-destructive" : ""} />
                   {errors.telephone && <p className="text-xs text-destructive">{errors.telephone.message}</p>}
                 </div>
                 <div className="space-y-1.5">
@@ -256,7 +258,7 @@ export default function Reservation() {
             </Button>
 
             <p className="text-xs text-muted-foreground text-center">
-              Votre réservation sera confirmée par téléphone sous 24h. Pour toute urgence : +213 555 00 00 00
+              Votre réservation sera confirmée par téléphone sous 24h. Pour toute urgence : {CONTACT_PHONE}
             </p>
           </motion.form>
         </div>
