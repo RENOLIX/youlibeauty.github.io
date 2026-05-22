@@ -5,9 +5,10 @@ import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
 import heroSalonImage from "@/assets/youli-hero-salon.png";
 import epilationImage from "@/assets/youli-epilation.png";
+import storySalonImage from "@/assets/youli-story-salon.png";
 
 const HERO_IMAGE = heroSalonImage;
-const SALON_IMAGE = "https://images.unsplash.com/photo-1633681122703-3ce20f1e978d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHw1fHxsdXh1cnklMjBoYWlyJTIwc2Fsb24lMjBpbnRlcmlvciUyMGVsZWdhbnR8ZW58MHx8fHwxNzc5MzgzMTM0fDA&ixlib=rb-4.1.0&q=80&w=1080";
+const SALON_IMAGE = storySalonImage;
 
 const categories = [
   {
