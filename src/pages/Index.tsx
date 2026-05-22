@@ -60,6 +60,16 @@ const categories = [
       { name: "Moustache / Visage", price: "1 000 DA" },
     ],
   },
+  {
+    title: "Beauté & Mise en beauté",
+    img: resultImage3,
+    services: [
+      { name: "Extensions de cils", price: "3 000 DA" },
+      { name: "Nettoyage de peau", price: "3 000 DA" },
+      { name: "Coiffure invitée", price: "3 500 DA" },
+      { name: "Maquillage invitée", price: "2 500 DA" },
+    ],
+  },
 ];
 
 const testimonials = [

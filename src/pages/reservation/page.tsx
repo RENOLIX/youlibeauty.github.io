@@ -33,6 +33,10 @@ const services = [
   { value: "epilation_bras", label: "Épilation bras - 2 000 DZD / 1/2" },
   { value: "epilation_maillot", label: "Épilation maillot - 4 000 DZD" },
   { value: "epilation_visage", label: "Épilation moustache / visage - 1 000 DZD" },
+  { value: "extensions_cils", label: "Extensions de cils - 3 000 DZD" },
+  { value: "nettoyage_peau", label: "Nettoyage de peau - 3 000 DZD" },
+  { value: "coiffure_invitee", label: "Coiffure invitée - 3 500 DZD" },
+  { value: "maquillage_invitee", label: "Maquillage invitée - 2 500 DZD" },
 ];
 
 const horaires = [

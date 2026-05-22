@@ -69,6 +69,42 @@ const services = [
     benefits: ["Régénération complète", "Résultat spectaculaire", "Soin & lissage combinés", "Durabilité 8-10 mois"],
     image: "https://images.unsplash.com/photo-1749448534695-802fe0cc44e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
   },
+  {
+    name: "Extensions de cils",
+    price: "3 000",
+    duration: "1h-1h30",
+    tag: "Regard",
+    desc: "Une pose soignée pour intensifier le regard tout en gardant un rendu élégant et harmonieux.",
+    benefits: ["Effet naturel ou glamour", "Pose précise", "Regard allongé", "Finition légère"],
+    image: "https://images.unsplash.com/photo-1589710751893-f9a6770ad71b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+  },
+  {
+    name: "Nettoyage de peau",
+    price: "3 000",
+    duration: "1h",
+    tag: "Soin visage",
+    desc: "Un soin visage purifiant pour nettoyer la peau en profondeur, raviver l'éclat et apporter une sensation de fraîcheur.",
+    benefits: ["Peau purifiée", "Éclat naturel", "Soin doux", "Teint plus net"],
+    image: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+  },
+  {
+    name: "Coiffure invitée",
+    price: "3 500",
+    duration: "1h-2h",
+    tag: "Événement",
+    desc: "Une coiffure raffinée pour mariage, fête ou soirée, adaptée à votre tenue et à votre style.",
+    benefits: ["Tenue élégante", "Finition professionnelle", "Style personnalisé", "Idéal événements"],
+    image: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+  },
+  {
+    name: "Maquillage invitée",
+    price: "2 500",
+    duration: "45min-1h",
+    tag: "Make-up",
+    desc: "Un maquillage lumineux et travaillé pour les occasions spéciales, avec un rendu propre et photographique.",
+    benefits: ["Teint lumineux", "Regard défini", "Longue tenue", "Rendu élégant"],
+    image: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+  },
 ];
 
 export default function Services() {
