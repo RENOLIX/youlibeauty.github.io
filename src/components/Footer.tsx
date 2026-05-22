@@ -1,0 +1,84 @@
+import { Link } from "react-router-dom";
+import { MapPin, Phone, Mail } from "lucide-react";
+
+export default function Footer() {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="bg-foreground text-background/80">
+      <div className="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="space-y-4">
+          <div className="flex items-center">
+            <img
+              src="https://hercules-cdn.com/file_dqUTgHNPcSH1chZCYkzcnp1N"
+              alt="Youli Beauty"
+              className="h-20 brightness-0 invert"
+            />
+          </div>
+          <p className="text-sm leading-relaxed text-background/60">
+            Votre salon de coiffure premium spécialisé dans les traitements kératine,
+            protéine et lissages professionnels à Alger.
+          </p>
+          <div className="flex gap-3">
+            <a
+              href="https://www.instagram.com/"
+              className="p-2 rounded-full border border-background/20 hover:border-accent hover:text-accent transition-colors cursor-pointer text-xs font-medium"
+            >
+              Instagram
+            </a>
+            <a
+              href="https://www.facebook.com/"
+              className="p-2 rounded-full border border-background/20 hover:border-accent hover:text-accent transition-colors cursor-pointer text-xs font-medium"
+            >
+              Facebook
+            </a>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <h4 className="font-serif text-lg text-background font-medium">Navigation</h4>
+          <ul className="space-y-2">
+            {[
+              { label: "Accueil", href: "/" },
+              { label: "Services & Tarifs", href: "/services" },
+              { label: "À Propos", href: "/about" },
+              { label: "Contact", href: "/contact" },
+              { label: "Réservation", href: "/reservation" },
+            ].map((l) => (
+              <li key={l.href}>
+                <Link to={l.href} className="text-sm hover:text-accent transition-colors cursor-pointer">
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="space-y-4">
+          <h4 className="font-serif text-lg text-background font-medium">Nous Trouver</h4>
+          <ul className="space-y-3 text-sm">
+            <li className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-accent" />
+              <span>123 Rue Didouche Mourad, Alger Centre, Algérie</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Phone className="w-4 h-4 shrink-0 text-accent" />
+              <span>+213 555 00 00 00</span>
+            </li>
+            <li className="flex items-center gap-2">
+              <Mail className="w-4 h-4 shrink-0 text-accent" />
+              <span>contact@salonlumiere.dz</span>
+            </li>
+          </ul>
+          <div className="text-xs text-background/50 pt-2">
+            Lun-Sam : 9h00 - 19h00
+          </div>
+        </div>
+      </div>
+
+      <div className="border-t border-background/10 text-center py-4 text-xs text-background/40">
+        © {year} Youli Beauty. Tous droits réservés.
+      </div>
+    </footer>
+  );
+}
