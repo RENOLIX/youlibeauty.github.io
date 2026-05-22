@@ -180,17 +180,28 @@
 }
 
 .glass {
-  background: rgba(255, 245, 243, 0.20);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(255, 220, 215, 0.30);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.56), rgba(255, 232, 228, 0.22)),
+    rgba(255, 245, 243, 0.34) !important;
+  backdrop-filter: blur(26px) saturate(190%);
+  -webkit-backdrop-filter: blur(26px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.52) !important;
+  box-shadow:
+    0 14px 40px rgba(89, 35, 43, 0.13),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    inset 0 -1px 0 rgba(255, 210, 205, 0.24);
 }
 
 .glass-dark {
-  background: rgba(60, 30, 30, 0.35);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(255, 200, 200, 0.15);
+  background:
+    linear-gradient(135deg, rgba(80, 38, 43, 0.48), rgba(120, 66, 68, 0.28)),
+    rgba(60, 30, 30, 0.38) !important;
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid rgba(255, 230, 224, 0.22) !important;
+  box-shadow:
+    0 18px 44px rgba(35, 12, 16, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .glass-card {
@@ -202,17 +213,28 @@
 }
 
 .glass-btn {
-  background: rgba(255, 248, 246, 0.28);
-  backdrop-filter: blur(14px) saturate(160%);
-  -webkit-backdrop-filter: blur(14px) saturate(160%);
-  border: 1px solid rgba(255, 220, 215, 0.45);
-  box-shadow: 0 2px 16px rgba(200, 100, 100, 0.10), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.50), rgba(255, 222, 218, 0.20)),
+    rgba(255, 248, 246, 0.24) !important;
+  backdrop-filter: blur(20px) saturate(185%);
+  -webkit-backdrop-filter: blur(20px) saturate(185%);
+  border: 1px solid rgba(255, 255, 255, 0.55) !important;
+  box-shadow:
+    0 10px 30px rgba(87, 32, 42, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.76),
+    inset 0 -1px 0 rgba(255, 207, 202, 0.28);
   transition: all 0.2s ease;
 }
 
 .glass-btn:hover {
-  background: rgba(255, 240, 238, 0.42);
-  box-shadow: 0 4px 24px rgba(200, 100, 100, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 220, 216, 0.28)),
+    rgba(255, 240, 238, 0.40) !important;
+  box-shadow:
+    0 14px 38px rgba(87, 32, 42, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.86),
+    inset 0 -1px 0 rgba(255, 207, 202, 0.34);
+  transform: translateY(-1px);
 }
 
 @keyframes marquee {

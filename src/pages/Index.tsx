@@ -100,7 +100,7 @@ export default function Index() {
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
                 to="/reservation"
-                className="glass-btn inline-flex items-center justify-center gap-2 bg-accent/80 text-foreground px-8 py-3.5 text-sm font-medium tracking-wide cursor-pointer rounded-full"
+                className="glass-btn inline-flex items-center justify-center gap-2 text-foreground px-8 py-3.5 text-sm font-medium tracking-wide cursor-pointer rounded-full"
               >
                 Réserver maintenant
                 <ArrowRight className="w-4 h-4" />

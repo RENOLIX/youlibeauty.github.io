@@ -42,7 +42,7 @@ export default function Navbar() {
           ))}
           <Link
             to="/reservation"
-            className="glass-btn bg-primary/80 text-foreground text-sm font-medium px-5 py-2 rounded-full cursor-pointer"
+            className="glass-btn text-foreground text-sm font-medium px-5 py-2 rounded-full cursor-pointer"
           >
             Réserver
           </Link>
