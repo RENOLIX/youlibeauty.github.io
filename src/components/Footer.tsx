@@ -16,10 +16,14 @@ export default function Footer() {
             <img
               src="https://hercules-cdn.com/file_dqUTgHNPcSH1chZCYkzcnp1N"
               alt="Youli Beauty"
+              width={160}
+              height={80}
+              loading="lazy"
+              decoding="async"
               className="h-20 brightness-0 invert"
             />
           </div>
-          <p className="text-sm leading-relaxed text-background/60">
+          <p className="text-sm leading-relaxed text-background/80">
             Votre salon de coiffure premium spécialisé dans les traitements kératine,
             protéine et lissages professionnels à Alger.
           </p>

@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { CheckCircle, Award, Heart, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
@@ -13,6 +12,7 @@ import resultVideo1 from "@/assets/about/youli-video-01.mp4";
 import resultVideo2 from "@/assets/about/youli-video-02.mp4";
 import resultVideo3 from "@/assets/about/youli-video-03.mp4";
 import resultVideo4 from "@/assets/about/youli-video-04.mp4";
+import captions from "@/assets/about/captions.vtt";
 
 const values = [
   { icon: Award, title: "Excellence", desc: "Nous n'utilisons que les produits professionnels les plus performants du marché." },
@@ -23,14 +23,14 @@ const values = [
 
 const gallery = [
   { type: "image", src: resultImage1, title: "Lissage brillant" },
-  { type: "video", src: resultVideo1, title: "Résultat fluide" },
+  { type: "video", src: resultVideo1, poster: resultImage1, title: "Résultat fluide" },
   { type: "image", src: resultImage2, title: "Finition naturelle" },
-  { type: "video", src: resultVideo2, title: "Cheveux en mouvement" },
+  { type: "video", src: resultVideo2, poster: resultImage2, title: "Cheveux en mouvement" },
   { type: "image", src: resultImage3, title: "Coiffure de soirée" },
   { type: "image", src: resultImage4, title: "Soin kératine" },
-  { type: "video", src: resultVideo3, title: "Transformation" },
+  { type: "video", src: resultVideo3, poster: resultImage4, title: "Transformation" },
   { type: "image", src: resultImage5, title: "Brillance profonde" },
-  { type: "video", src: resultVideo4, title: "Avant / après" },
+  { type: "video", src: resultVideo4, poster: resultImage5, title: "Avant / après" },
 ];
 
 export default function About() {
@@ -39,10 +39,7 @@ export default function About() {
       <Navbar />
 
       <section className="pt-28 pb-16 bg-muted text-center px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+        <div
         >
           <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Notre Histoire</p>
           <h1 className="font-serif text-5xl md:text-6xl font-light text-foreground mb-4">
@@ -51,16 +48,12 @@ export default function About() {
           <p className="text-muted-foreground max-w-xl mx-auto">
             Depuis 2018, Youli Beauty accompagne les femmes qui veulent des cheveux brillants, soignés et faciles à porter au quotidien.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <section className="py-20 bg-background">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+          <div
             className="space-y-5"
           >
             <h2 className="font-serif text-4xl font-light text-foreground">
@@ -78,24 +71,30 @@ export default function About() {
               Les photos et vidéos ci-dessous montrent de vraies réalisations du salon, avec des cheveux lissés,
               brillants et mis en valeur dans notre espace beauté.
             </p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+          </div>
+          <div
             className="grid grid-cols-2 gap-4"
           >
-            <img src={resultImage1} alt="Résultat lissage Youli Beauty" className="w-full h-52 object-cover" />
+            <img
+              src={resultImage1}
+              alt="Résultat lissage Youli Beauty"
+              width={400}
+              height={520}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-52 object-cover"
+            />
             <video
               src={resultVideo1}
+              poster={resultImage1}
               className="w-full h-52 object-cover mt-8"
               muted
-              loop
-              autoPlay
               playsInline
-            />
-          </motion.div>
+              preload="none"
+            >
+              <track kind="captions" src={captions} srcLang="fr" label="Français" />
+            </video>
+          </div>
         </div>
       </section>
 
@@ -109,32 +108,39 @@ export default function About() {
           </div>
           <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {gallery.map((item, i) => (
-              <motion.figure
+              <figure
                 key={`${item.title}-${i}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.04, ease: "easeOut" }}
                 className="glass-card snap-start shrink-0 w-[78vw] sm:w-[340px] overflow-hidden rounded-3xl"
               >
                 <div className="aspect-[4/5] bg-foreground/5">
                   {item.type === "image" ? (
-                    <img src={item.src} alt={item.title} className="h-full w-full object-cover" />
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      width={340}
+                      height={425}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
                   ) : (
                     <video
                       src={item.src}
+                      poster={item.poster}
                       className="h-full w-full object-cover"
                       controls
                       muted
                       playsInline
-                      preload="metadata"
-                    />
+                      preload="none"
+                    >
+                      <track kind="captions" src={captions} srcLang="fr" label="Français" />
+                    </video>
                   )}
                 </div>
                 <figcaption className="px-5 py-4 font-serif text-lg text-foreground">
                   {item.title}
                 </figcaption>
-              </motion.figure>
+              </figure>
             ))}
           </div>
         </div>
@@ -150,12 +156,8 @@ export default function About() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, i) => (
-              <motion.div
+              <div
                 key={v.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                 className="glass-card p-7 space-y-3 text-center rounded-2xl"
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-1">
@@ -163,7 +165,7 @@ export default function About() {
                 </div>
                 <h3 className="font-serif text-xl font-medium text-foreground">{v.title}</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">{v.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -184,3 +186,4 @@ export default function About() {
     </div>
   );
 }
+

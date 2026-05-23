@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils.ts";
 
 const links = [
@@ -23,6 +22,9 @@ export default function Navbar() {
           <img
             src="https://hercules-cdn.com/file_dqUTgHNPcSH1chZCYkzcnp1N"
             alt="Youli Beauty"
+            width={128}
+            height={64}
+            decoding="async"
             className="h-16 object-contain"
           />
         </Link>
@@ -34,7 +36,7 @@ export default function Navbar() {
               to={link.href}
               className={cn(
                 "text-sm font-medium tracking-wide transition-colors hover:text-white cursor-pointer",
-                pathname === link.href ? "text-foreground" : "text-foreground/50",
+                pathname === link.href ? "text-foreground" : "text-foreground/70",
               )}
             >
               {link.label}
@@ -57,14 +59,8 @@ export default function Navbar() {
         </button>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-background border-b border-border px-6 pb-4"
-          >
+      {open && (
+          <div className="md:hidden bg-background border-b border-border px-6 pb-4">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -72,15 +68,14 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 className={cn(
                   "block py-3 text-sm font-medium border-b border-border/50 last:border-0 cursor-pointer transition-colors hover:text-foreground",
-                  pathname === link.href ? "text-foreground" : "text-foreground/50",
+                  pathname === link.href ? "text-foreground" : "text-foreground/70",
                 )}
               >
                 {link.label}
               </Link>
             ))}
-          </motion.div>
+          </div>
         )}
-      </AnimatePresence>
     </header>
   );
 }

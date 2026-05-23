@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
 import { ArrowRight, CheckCircle, Clock, Sparkles } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
-import heroSalonImage from "@/assets/youli-hero-salon.png";
+import heroSalonImage from "@/assets/youli-hero-salon.jpg";
 
 const services = [
   {
@@ -113,10 +112,7 @@ export default function Services() {
       <Navbar />
 
       <section className="pt-28 pb-16 bg-muted text-center px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+        <div
         >
           <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Catalogue Complet</p>
           <h1 className="font-serif text-5xl md:text-6xl font-light text-foreground mb-4">
@@ -125,24 +121,24 @@ export default function Services() {
           <p className="text-muted-foreground max-w-xl mx-auto">
             Tous nos prix sont en Dinars Algériens (DZD). Réservez en ligne ou appelez-nous directement.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <section className="py-16 bg-background flex-1">
         <div className="max-w-5xl mx-auto px-6 space-y-8">
           {services.map((service, i) => (
-            <motion.div
+            <div
               key={service.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.05, ease: "easeOut" }}
               className="glass-card border-0 p-0 hover:shadow-xl transition-all duration-300 overflow-hidden rounded-2xl group grid grid-cols-1 md:grid-cols-3"
             >
               <div className="h-52 md:h-auto overflow-hidden">
                 <img
                   src={service.image}
                   alt={service.name}
+                  width={600}
+                  height={400}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  decoding="async"
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
@@ -184,7 +180,7 @@ export default function Services() {
                   </Link>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
@@ -206,3 +202,4 @@ export default function Services() {
     </div>
   );
 }
+

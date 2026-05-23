@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
 import { ArrowRight, Star, Sparkles, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
 import MapPreview from "@/components/MapPreview.tsx";
-import heroSalonImage from "@/assets/youli-hero-salon.png";
-import epilationImage from "@/assets/youli-epilation.png";
-import storySalonImage from "@/assets/youli-story-salon.png";
+import heroSalonImage from "@/assets/youli-hero-salon.jpg";
+import epilationImage from "@/assets/youli-epilation.jpg";
+import storySalonImage from "@/assets/youli-story-salon.jpg";
 import resultImage1 from "@/assets/about/youli-result-01.jpeg";
 import resultImage2 from "@/assets/about/youli-result-02.jpeg";
 import resultImage3 from "@/assets/about/youli-result-03.jpeg";
@@ -16,6 +15,7 @@ import resultVideo1 from "@/assets/about/youli-video-01.mp4";
 import resultVideo2 from "@/assets/about/youli-video-02.mp4";
 import resultVideo3 from "@/assets/about/youli-video-03.mp4";
 import resultVideo4 from "@/assets/about/youli-video-04.mp4";
+import captions from "@/assets/about/captions.vtt";
 
 const HERO_IMAGE = heroSalonImage;
 const SALON_IMAGE = storySalonImage;
@@ -23,7 +23,7 @@ const SALON_IMAGE = storySalonImage;
 const categories = [
   {
     title: "Soins Cheveux",
-    img: "https://images.unsplash.com/photo-1562259920-47afc3030ba2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHw0fHxrZXJhdGluJTIwaGFpciUyMHRyZWF0bWVudCUyMHNhbG9ufGVufDB8fHx8MTc3OTM4NTc5OXww&ixlib=rb-4.1.0&q=80&w=600",
+    img: heroSalonImage,
     services: [
       { name: "Protéine", price: "6 000 DA" },
       { name: "Mélange Protéine Collagène", price: "8 000 DA" },
@@ -34,7 +34,7 @@ const categories = [
   },
   {
     title: "Cheveux Servis",
-    img: "https://images.unsplash.com/photo-1723879371691-631902ea2fe1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHwyfHxrZXJhdGluJTIwaGFpciUyMHRyZWF0bWVudCUyMHNhbG9ufGVufDB8fHx8MTc3OTM4NTc5OXww&ixlib=rb-4.1.0&q=80&w=600",
+    img: resultImage2,
     services: [
       { name: "Brushing", price: "500 DA" },
       { name: "Balayage", price: "12 000 DA" },
@@ -43,7 +43,7 @@ const categories = [
   },
   {
     title: "Shampoing & Masque Capillaire",
-    img: "https://images.unsplash.com/photo-1717160675643-53a7a2ebaa9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHw3fHxoYWlyJTIwd2FzaCUyMHNoYW1wb28lMjBtYXNrJTIwc2Fsb258ZW58MHx8fHwxNzc5NDU4NzEwfDA&ixlib=rb-4.1.0&q=80&w=600",
+    img: resultImage4,
     services: [
       { name: "Shampoing & Masque", price: "500 DA" },
       { name: "Ondulation", price: "1 500 DA" },
@@ -80,14 +80,14 @@ const testimonials = [
 
 const realizations = [
   { type: "image", src: resultImage1, title: "Brillance miroir" },
-  { type: "video", src: resultVideo1, title: "Résultat en mouvement" },
+  { type: "video", src: resultVideo1, poster: resultImage1, title: "Résultat en mouvement" },
   { type: "image", src: resultImage2, title: "Lissage lumineux" },
-  { type: "video", src: resultVideo2, title: "Finition soyeuse" },
+  { type: "video", src: resultVideo2, poster: resultImage2, title: "Finition soyeuse" },
   { type: "image", src: resultImage3, title: "Coiffure élégante" },
   { type: "image", src: resultImage4, title: "Soin profond" },
-  { type: "video", src: resultVideo3, title: "Transformation" },
+  { type: "video", src: resultVideo3, poster: resultImage4, title: "Transformation" },
   { type: "image", src: resultImage5, title: "Cheveux sublimés" },
-  { type: "video", src: resultVideo4, title: "Avant / après" },
+  { type: "video", src: resultVideo4, poster: resultImage5, title: "Avant / après" },
 ];
 
 const marqueeItems = [
@@ -109,17 +109,18 @@ export default function Index() {
       <Navbar />
 
       <section className="relative min-h-screen flex items-center pt-16">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
+        <img
+          src={HERO_IMAGE}
+          alt=""
+          width={1831}
+          height={859}
+          fetchPriority="high"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-foreground/60 via-foreground/40 to-foreground/25" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 py-24">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+          <div
             className="max-w-2xl"
           >
             <p className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-4">
@@ -147,7 +148,7 @@ export default function Index() {
                 Voir nos services
               </Link>
             </div>
-          </motion.div>
+          </div>
         </div>
 
         <div className="absolute bottom-0 left-0 right-0 glass-dark py-4 overflow-hidden">
@@ -163,11 +164,7 @@ export default function Index() {
 
       <section className="py-24 bg-background">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          <div
             className="text-center mb-14"
           >
             <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Nos Soins</p>
@@ -177,22 +174,22 @@ export default function Index() {
             <p className="text-muted-foreground max-w-xl mx-auto">
               Des traitements capillaires professionnels, soigneusement sélectionnés pour sublimer chaque type de cheveu.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {categories.map((cat, i) => (
-              <motion.div
+              <div
                 key={cat.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                 className="glass-card overflow-hidden hover:shadow-xl transition-all duration-300 rounded-3xl"
               >
                 <div className="h-48 overflow-hidden rounded-t-3xl">
                   <img
                     src={cat.img}
                     alt={cat.title}
+                    width={600}
+                    height={400}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
@@ -210,7 +207,7 @@ export default function Index() {
                     Réserver
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -228,64 +225,68 @@ export default function Index() {
 
       <section className="py-24 bg-muted overflow-hidden">
         <div className="max-w-6xl mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          <div
             className="mb-10"
           >
             <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Réalisations</p>
             <h2 className="font-serif text-4xl md:text-5xl font-light text-foreground">
               Quelques <em className="italic">Résultats</em>
             </h2>
-          </motion.div>
+          </div>
 
           <div className="flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {realizations.map((item, i) => (
-              <motion.figure
+              <figure
                 key={`${item.title}-${i}`}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.45, delay: i * 0.04, ease: "easeOut" }}
                 className="glass-card snap-start shrink-0 w-[78vw] sm:w-[360px] overflow-hidden rounded-3xl"
               >
                 <div className="aspect-[4/5] bg-foreground/5">
                   {item.type === "image" ? (
-                    <img src={item.src} alt={item.title} className="h-full w-full object-cover" />
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      width={360}
+                      height={450}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
                   ) : (
                     <video
                       src={item.src}
+                      poster={item.poster}
                       className="h-full w-full object-cover"
                       controls
                       muted
                       playsInline
-                      preload="metadata"
-                    />
+                      preload="none"
+                    >
+                      <track kind="captions" src={captions} srcLang="fr" label="Français" />
+                    </video>
                   )}
                 </div>
                 <figcaption className="px-5 py-4 font-serif text-lg text-foreground">
                   {item.title}
                 </figcaption>
-              </motion.figure>
+              </figure>
             ))}
           </div>
         </div>
       </section>
 
       <section className="py-24 relative overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: `url(${SALON_IMAGE})` }}
+        <img
+          src={SALON_IMAGE}
+          alt=""
+          width={1831}
+          height={859}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-foreground/50" />
         <div className="relative z-10 max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+          <div
             className="glass-dark rounded-2xl p-8 space-y-5"
           >
             <p className="text-accent text-sm font-medium tracking-[0.3em] uppercase">Notre Histoire</p>
@@ -310,13 +311,9 @@ export default function Index() {
             >
               En savoir plus <ArrowRight className="w-4 h-4" />
             </Link>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, ease: "easeOut" }}
+          <div
             className="grid grid-cols-2 gap-4"
           >
             {[
@@ -330,7 +327,7 @@ export default function Index() {
                 <div className="text-xs text-background/70 mt-1">{stat.label}</div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -344,12 +341,8 @@ export default function Index() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
-              <motion.div
+              <div
                 key={t.name}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1, ease: "easeOut" }}
                 className="glass-card p-7 space-y-4 rounded-2xl"
               >
                 <div className="flex gap-1">
@@ -359,23 +352,24 @@ export default function Index() {
                 </div>
                 <p className="text-muted-foreground text-sm leading-relaxed italic">{`"${t.text}"`}</p>
                 <div className="font-medium text-sm text-foreground">- {t.name}</div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       <section className="relative py-20 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${HERO_IMAGE})` }}
+        <img
+          src={HERO_IMAGE}
+          alt=""
+          width={1831}
+          height={859}
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-primary/70" />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+        <div
           className="relative z-10 max-w-2xl mx-auto text-center space-y-6 px-6"
         >
           <h2 className="font-serif text-4xl md:text-5xl font-light text-background">
@@ -391,7 +385,7 @@ export default function Index() {
             <Sparkles className="w-4 h-4" />
             Réserver mon rendez-vous
           </Link>
-        </motion.div>
+        </div>
       </section>
 
       <section className="py-20 bg-background">
@@ -413,3 +407,4 @@ export default function Index() {
     </div>
   );
 }
+

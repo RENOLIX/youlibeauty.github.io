@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { motion } from "motion/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -120,10 +119,7 @@ export default function Reservation() {
       <div className="min-h-screen flex flex-col">
         <Navbar />
         <div className="flex-1 flex items-center justify-center px-6 py-24">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+          <div
             className="text-center max-w-md space-y-5"
           >
             <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
@@ -145,7 +141,7 @@ export default function Reservation() {
             >
               Faire une autre réservation
             </button>
-          </motion.div>
+          </div>
         </div>
         <Footer />
       </div>
@@ -157,10 +153,7 @@ export default function Reservation() {
       <Navbar />
 
       <section className="pt-28 pb-16 bg-muted text-center px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+        <div
         >
           <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Prenez Rendez-vous</p>
           <h1 className="font-serif text-5xl md:text-6xl font-light text-foreground mb-4">
@@ -169,15 +162,12 @@ export default function Reservation() {
           <p className="text-muted-foreground max-w-xl mx-auto">
             Choisissez votre service, votre date et votre horaire. Nous vous confirmerons rapidement.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <section className="py-16 bg-background flex-1">
         <div className="max-w-3xl mx-auto px-6">
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+          <form
             onSubmit={handleSubmit(onSubmit)}
             className="glass-card p-8 md:p-12 space-y-8 rounded-3xl"
           >
@@ -296,7 +286,7 @@ export default function Reservation() {
             <p className="text-xs text-muted-foreground text-center">
               Un message WhatsApp organisé sera préparé automatiquement. Pour toute urgence : {CONTACT_PHONE}
             </p>
-          </motion.form>
+          </form>
         </div>
       </section>
 
@@ -304,3 +294,4 @@ export default function Reservation() {
     </div>
   );
 }
+

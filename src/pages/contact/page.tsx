@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
@@ -14,10 +13,7 @@ export default function Contact() {
       <Navbar />
 
       <section className="pt-28 pb-16 bg-muted text-center px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+        <div
         >
           <p className="text-primary text-sm font-medium tracking-[0.3em] uppercase mb-3">Nous Joindre</p>
           <h1 className="font-serif text-5xl md:text-6xl font-light text-foreground mb-4">
@@ -26,15 +22,12 @@ export default function Contact() {
           <p className="text-muted-foreground max-w-xl mx-auto">
             Une question, un conseil personnalisé ou une demande spéciale ? Nous sommes à votre écoute.
           </p>
-        </motion.div>
+        </div>
       </section>
 
       <section className="py-20 bg-background flex-1">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-14">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          <div
             className="space-y-8"
           >
             <h2 className="font-serif text-3xl font-light text-foreground mb-6">
@@ -97,12 +90,9 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          <div
             className="space-y-6"
           >
             <h2 className="font-serif text-3xl font-light text-foreground">
@@ -116,7 +106,7 @@ export default function Contact() {
                 Pour toute question avant votre venue, appelez-nous ou envoyez-nous un email.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -124,3 +114,4 @@ export default function Contact() {
     </div>
   );
 }
+

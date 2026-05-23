@@ -1,12 +1,13 @@
-import { useEffect } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
-import About from "./pages/about/page";
-import AuthCallback from "./pages/auth/Callback";
-import Contact from "./pages/contact/page";
-import Reservation from "./pages/reservation/page";
-import Services from "./pages/services/page";
+
+const About = lazy(() => import("./pages/about/page"));
+const AuthCallback = lazy(() => import("./pages/auth/Callback"));
+const Contact = lazy(() => import("./pages/contact/page"));
+const Reservation = lazy(() => import("./pages/reservation/page"));
+const Services = lazy(() => import("./pages/services/page"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -22,15 +23,17 @@ function AppRoutes() {
   return (
     <>
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/auth/callback" element={<AuthCallback />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/reservation" element={<Reservation />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <Suspense fallback={<div className="min-h-screen bg-background" />}>
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/auth/callback" element={<AuthCallback />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/reservation" element={<Reservation />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
     </>
   );
 }
