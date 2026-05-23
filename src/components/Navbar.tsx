@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils.ts";
+import youliLogo from "@/assets/youli-beauty-logo.png";
 
 const links = [
   { label: "Accueil", href: "/" },
@@ -20,12 +21,12 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
         <Link to="/" className="flex items-center group">
           <img
-            src="https://hercules-cdn.com/file_dqUTgHNPcSH1chZCYkzcnp1N"
+            src={youliLogo}
             alt="Youli Beauty"
-            width={128}
-            height={64}
+            width={2000}
+            height={756}
             decoding="async"
-            className="h-16 object-contain"
+            className="h-14 w-auto object-contain"
           />
         </Link>
 

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail } from "lucide-react";
+import youliLogo from "@/assets/youli-beauty-logo.png";
 
 const CONTACT_EMAIL = "Linatahir19ans@gmail.com";
 const CONTACT_PHONE = "0552189640";
@@ -14,13 +15,13 @@ export default function Footer() {
         <div className="space-y-4">
           <div className="flex items-center">
             <img
-              src="https://hercules-cdn.com/file_dqUTgHNPcSH1chZCYkzcnp1N"
+              src={youliLogo}
               alt="Youli Beauty"
-              width={160}
-              height={80}
+              width={2000}
+              height={756}
               loading="lazy"
               decoding="async"
-              className="h-20 brightness-0 invert"
+              className="h-20 w-auto object-contain brightness-0 invert"
             />
           </div>
           <p className="text-sm leading-relaxed text-background/80">
