@@ -1,7 +1,7 @@
 {
   "name": "Youli Beauty",
   "short_name": "Youli Beauty",
-  "start_url": "/youlibeauty.github.io/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#fff7f6",
   "theme_color": "#b75365",

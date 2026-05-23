@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://renolix.github.io/youlibeauty.github.io/sitemap.xml
+Sitemap: https://youlibeauty.store/sitemap.xml
