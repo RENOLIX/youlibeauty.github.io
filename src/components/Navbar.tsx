@@ -20,12 +20,12 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 flex items-center justify-between h-16">
         <Link to="/" className="flex items-center group">
           <img
-            src="https://hercules-cdn.com/file_dqUTgHNPcSH1chZCYkzcnp1N"
+            src="/favicon-512.png"
             alt="Youli Beauty"
-            width={128}
+            width={64}
             height={64}
             decoding="async"
-            className="h-16 object-contain"
+            className="h-14 w-14 rounded-md object-contain"
           />
         </Link>
 

@@ -14,33 +14,19 @@ export default function Footer() {
         <div className="space-y-4">
           <div className="flex items-center">
             <img
-              src="https://hercules-cdn.com/file_dqUTgHNPcSH1chZCYkzcnp1N"
+              src="/favicon-512.png"
               alt="Youli Beauty"
-              width={160}
+              width={80}
               height={80}
               loading="lazy"
               decoding="async"
-              className="h-20 brightness-0 invert"
+              className="h-20 w-20 rounded-xl object-contain"
             />
           </div>
           <p className="text-sm leading-relaxed text-background/80">
             Votre salon de coiffure premium spécialisé dans les traitements kératine,
             protéine et lissages professionnels à Alger.
           </p>
-          <div className="flex gap-3">
-            <a
-              href="https://www.instagram.com/"
-              className="p-2 rounded-full border border-background/20 hover:border-accent hover:text-accent transition-colors cursor-pointer text-xs font-medium"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://www.facebook.com/"
-              className="p-2 rounded-full border border-background/20 hover:border-accent hover:text-accent transition-colors cursor-pointer text-xs font-medium"
-            >
-              Facebook
-            </a>
-          </div>
         </div>
 
         <div className="space-y-4">
