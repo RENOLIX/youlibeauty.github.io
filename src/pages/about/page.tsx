@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
+import LazyVideo from "@/components/LazyVideo.tsx";
 import resultImage1 from "@/assets/about/youli-result-01.jpeg";
 import resultImage2 from "@/assets/about/youli-result-02.jpeg";
 import resultImage3 from "@/assets/about/youli-result-03.jpeg";
@@ -12,7 +13,6 @@ import resultVideo1 from "@/assets/about/youli-video-01.mp4";
 import resultVideo2 from "@/assets/about/youli-video-02.mp4";
 import resultVideo3 from "@/assets/about/youli-video-03.mp4";
 import resultVideo4 from "@/assets/about/youli-video-04.mp4";
-import captions from "@/assets/about/captions.vtt";
 
 const values = [
   { icon: Award, title: "Excellence", desc: "Nous n'utilisons que les produits professionnels les plus performants du marché." },
@@ -84,16 +84,12 @@ export default function About() {
               decoding="async"
               className="w-full h-52 object-cover"
             />
-            <video
+            <LazyVideo
               src={resultVideo1}
               poster={resultImage1}
+              title="Résultat fluide"
               className="w-full h-52 object-cover mt-8"
-              muted
-              playsInline
-              preload="none"
-            >
-              <track kind="captions" src={captions} srcLang="fr" label="Français" />
-            </video>
+            />
           </div>
         </div>
       </section>
@@ -124,17 +120,12 @@ export default function About() {
                       className="h-full w-full object-cover"
                     />
                   ) : (
-                    <video
+                    <LazyVideo
                       src={item.src}
-                      poster={item.poster}
+                      poster={item.poster ?? item.src}
+                      title={item.title}
                       className="h-full w-full object-cover"
-                      controls
-                      muted
-                      playsInline
-                      preload="none"
-                    >
-                      <track kind="captions" src={captions} srcLang="fr" label="Français" />
-                    </video>
+                    />
                   )}
                 </div>
                 <figcaption className="px-5 py-4 font-serif text-lg text-foreground">

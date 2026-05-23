@@ -3,6 +3,7 @@ import { ArrowRight, Star, Sparkles, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar.tsx";
 import Footer from "@/components/Footer.tsx";
 import MapPreview from "@/components/MapPreview.tsx";
+import LazyVideo from "@/components/LazyVideo.tsx";
 import heroSalonImage from "@/assets/youli-hero-salon.jpg";
 import epilationImage from "@/assets/youli-epilation.jpg";
 import storySalonImage from "@/assets/youli-story-salon.jpg";
@@ -15,7 +16,6 @@ import resultVideo1 from "@/assets/about/youli-video-01.mp4";
 import resultVideo2 from "@/assets/about/youli-video-02.mp4";
 import resultVideo3 from "@/assets/about/youli-video-03.mp4";
 import resultVideo4 from "@/assets/about/youli-video-04.mp4";
-import captions from "@/assets/about/captions.vtt";
 
 const HERO_IMAGE = heroSalonImage;
 const SALON_IMAGE = storySalonImage;
@@ -252,17 +252,12 @@ export default function Index() {
                       className="h-full w-full object-cover"
                     />
                   ) : (
-                    <video
+                    <LazyVideo
                       src={item.src}
-                      poster={item.poster}
+                      poster={item.poster ?? item.src}
+                      title={item.title}
                       className="h-full w-full object-cover"
-                      controls
-                      muted
-                      playsInline
-                      preload="none"
-                    >
-                      <track kind="captions" src={captions} srcLang="fr" label="Français" />
-                    </video>
+                    />
                   )}
                 </div>
                 <figcaption className="px-5 py-4 font-serif text-lg text-foreground">
