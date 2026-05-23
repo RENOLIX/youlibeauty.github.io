@@ -23,7 +23,7 @@ const SALON_IMAGE = storySalonImage;
 const categories = [
   {
     title: "Soins Cheveux",
-    img: heroSalonImage,
+    img: "https://images.unsplash.com/photo-1562259920-47afc3030ba2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHw0fHxrZXJhdGluJTIwaGFpciUyMHRyZWF0bWVudCUyMHNhbG9ufGVufDB8fHx8MTc3OTM4NTc5OXww&ixlib=rb-4.1.0&q=80&w=600",
     services: [
       { name: "Protéine", price: "6 000 DA" },
       { name: "Mélange Protéine Collagène", price: "8 000 DA" },
@@ -34,7 +34,7 @@ const categories = [
   },
   {
     title: "Cheveux Servis",
-    img: resultImage2,
+    img: "https://images.unsplash.com/photo-1723879371691-631902ea2fe1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHwyfHxrZXJhdGluJTIwaGFpciUyMHRyZWF0bWVudCUyMHNhbG9ufGVufDB8fHx8MTc3OTM4NTc5OXww&ixlib=rb-4.1.0&q=80&w=600",
     services: [
       { name: "Brushing", price: "500 DA" },
       { name: "Balayage", price: "12 000 DA" },
@@ -43,7 +43,7 @@ const categories = [
   },
   {
     title: "Shampoing & Masque Capillaire",
-    img: resultImage4,
+    img: "https://images.unsplash.com/photo-1717160675643-53a7a2ebaa9f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NzIwMTN8MHwxfHNlYXJjaHw3fHxoYWlyJTIwd2FzaCUyMHNoYW1wb28lMjBtYXNrJTIwc2Fsb258ZW58MHx8fHwxNzc5NDU4NzEwfDA&ixlib=rb-4.1.0&q=80&w=600",
     services: [
       { name: "Shampoing & Masque", price: "500 DA" },
       { name: "Ondulation", price: "1 500 DA" },

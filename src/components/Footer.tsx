@@ -14,13 +14,13 @@ export default function Footer() {
         <div className="space-y-4">
           <div className="flex items-center">
             <img
-              src="/favicon-512.png"
+              src="https://hercules-cdn.com/file_dqUTgHNPcSH1chZCYkzcnp1N"
               alt="Youli Beauty"
-              width={80}
+              width={160}
               height={80}
               loading="lazy"
               decoding="async"
-              className="h-20 w-20 rounded-xl object-contain"
+              className="h-20 brightness-0 invert"
             />
           </div>
           <p className="text-sm leading-relaxed text-background/80">
